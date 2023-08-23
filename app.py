@@ -32,3 +32,20 @@ def index():
     recipes = search_recipes(decoded_search_query)
     #render main page
     return render_template("index.html", recipes=recipes, search_query=decoded_search_query)
+
+# search function upon query
+def search_recipes(query):
+    url = f"https://api.spoonacular.com/recipes/complexSearch"
+    params = {
+        "apikey": API_KEY,
+        "query" : query,
+        "number": 10,
+        "instructionsRequired": True,
+        "addRecipeInformation": True,
+        "fillIngredients" : True,
+    }
+
+    # Send get request to API
+    response = requests.get(url, params=params)
+    if response.status_code== 200:
+        data = response.json()
