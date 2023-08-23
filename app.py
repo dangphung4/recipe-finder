@@ -6,7 +6,7 @@ from urllib.parse import unquote
 app = Flask(__name__)
 
 # Replace with your Spoonacular API key
-API_KEY = '832820078b2e475f913f9fbb5f2fe382'
+API_KEY = ''
 
 # Define the route for the "Home" button
 @app.route('/home', methods=['GET'])
