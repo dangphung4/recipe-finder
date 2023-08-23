@@ -22,4 +22,13 @@ def index():
         query = request.form.get("search_query", "")
         # perform seasrch for recipes with given query
         recipes = search_recipes(query)
+        #render main page with search results and search query
+        return render_template("index.html", recipe=recipes, search_query=query)
         
+    #if no form is submitted
+    search_query = request.args.get("search_query", "")
+    decoded_search_query = unquote(search_query)
+    # perform a search for recipes with the decoded search query
+    recipes = search_recipes(decoded_search_query)
+    #render main page
+    return render_template("index.html", recipes=recipes, search_query=decoded_search_query)
