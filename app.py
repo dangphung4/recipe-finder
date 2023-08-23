@@ -14,3 +14,12 @@ def home():
     #render main page, empty list and serach query
     return render_template("index.html", recipe=[], search_query="")
 
+#main route for app
+@app.route("/", methods=["GET", "POST"])
+def index(): 
+    if request.method == "POST":
+        #if form is submitted
+        query = request.form.get("search_query", "")
+        # perform seasrch for recipes with given query
+        recipes = search_recipes(query)
+        
