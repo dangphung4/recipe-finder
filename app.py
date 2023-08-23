@@ -54,7 +54,7 @@ def search_recipes(query):
     return []
 
 #route to view specific recipe
-@app.route("/recipe/<int:recippe_id>")
+@app.route("/recipe/<int:recipe_id>")
 def view_recipe(recipe_id):
     search_query = request.args.get("search_query", "")
     url = f"https://api.spoonacular.com/recipes/{recipe_id}/information"
