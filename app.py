@@ -49,3 +49,6 @@ def search_recipes(query):
     response = requests.get(url, params=params)
     if response.status_code== 200:
         data = response.json()
+
+        return data["results"]
+    return []
