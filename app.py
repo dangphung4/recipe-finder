@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests
 from urllib.parse import unquote
 
-# Create the flask app
+# Create the flask application
 app = Flask(__name__)
 
 # Replace with your Spoonacular API key
