@@ -37,7 +37,7 @@ def index():
 def search_recipes(query):
     url = f"https://api.spoonacular.com/recipes/complexSearch"
     params = {
-        "apikey": API_KEY,
+        "apiKey": API_KEY,
         "query" : query,
         "number": 10,
         "instructionsRequired": True,
@@ -52,3 +52,23 @@ def search_recipes(query):
 
         return data["results"]
     return []
+
+#route to view specific recipe
+@app.route("/recipe/<int:recippe_id>")
+def view_recipe(recipe_id):
+    search_query = request.args.get("search_query", "")
+    url = f"https://api.spoonacular.com/recipes/{recipe_id}/information"
+    params = {
+        "apiKey": API_KEY,
+    }
+
+    response = requests.get(url, params=params)
+    if response.status_code== 200:
+        data = response.json()
+
+        return render_template("view_recipe.html", recipe=recipe, search_query=search_query)
+    return "Recipe not found", 404
+
+#Run app
+if __name__== "__main__":
+    app.run(debug=True)
