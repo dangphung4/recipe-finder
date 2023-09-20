@@ -14,3 +14,7 @@ API_KEY = #Spoonacular API key
 
 ## To run 
 `python3 app.py`
+
+
+
+#### Still in development 
