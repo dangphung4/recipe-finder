@@ -1,6 +1,6 @@
 Web application Recipe scraper/finder that looks for recipies pertaining to a specific category or ingredient. This returns a picture, ingredients, title of the meal and steps to how to create the meal.
 
-This is done with Flask and Spoonacular API
+This current draft/rendition is done with Flask and Spoonacular API
 
 How to run locally:    
 
